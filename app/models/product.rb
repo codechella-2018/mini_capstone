@@ -1,8 +1,7 @@
 class Product < ApplicationRecord
 
-	def supplier
-		Supplier.find(supplier_id)
-	end
+	belongs_to :supplier #return a supplier hash, assumes product has a foreign key (supplier_id)
+	has_many :images
 
 	def is_discounted?
 		price < 10
