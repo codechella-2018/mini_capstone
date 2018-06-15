@@ -14,14 +14,10 @@ class Api::OrdersController < ApplicationController
 	   quantity: params[:quantity]
 	  )
 
-	  calculated_subtotal = @order.product.price * @order.quantity.to_i
-	  calculated_tax = calculated_subtotal * 0.09
-	  calulated_total = calculated_subtotal + calculated_tax
-
 	  @order.update(
-	  	subtotal: calculated_subtotal, 
-	  	tax: calculated_tax, 
-	  	total: calulated_total
+	  	subtotal: @order.calculated_subtotal,
+	  	tax: @order.calculated_tax, 
+	  	total: @order.calulated_total
 	  )
 
 	  render 'show.json.jbuilder'
