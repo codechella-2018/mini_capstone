@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
 	has_many :category_products
-	# has_many :categories
+	has_many :categories, through: :category_products
 
 	has_many :orders
 	belongs_to :supplier #return a supplier hash, assumes product has a foreign key (supplier_id)

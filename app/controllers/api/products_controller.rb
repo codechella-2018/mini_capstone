@@ -14,6 +14,11 @@ class Api::ProductsController < ApplicationController
       @products = @products.order(id: :asc)
     end
 
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
+    end
+
     render 'index.json.jbuilder'
   end
 
