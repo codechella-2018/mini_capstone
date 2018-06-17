@@ -16,3 +16,5 @@ json.formatted do
 	json.tax number_to_currency(product.tax)
 	json.total number_to_currency(product.total)
 end
+
+json.categories product.categories
