@@ -1,12 +1,7 @@
 json.id @order.id
-json.quantity @order.quantity
 
 json.user do
 	json.partial! @order.user, partial: "api/users/user", as: :user
-end
-
-json.product do
-	json.partial! @order.product, partial: "api/products/product", as: :product
 end
 
 json.formatted do
